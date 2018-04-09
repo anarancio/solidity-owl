@@ -16,6 +16,9 @@
   "author": "Alejandro Narancio",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popoverjs": "^1.1.2",
     "webpack": "^4.5.0"
   },
   "devDependencies": {
