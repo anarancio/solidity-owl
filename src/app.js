@@ -46,9 +46,21 @@ $('#btnAddEvent').click(() => {
   const eventName = $('#txtEventName').val();
   if (!eventsFilters.has(eventName)) {
     const event = {
-      name: eventName
+      name: eventName,
     };
     eventsFilters.set(eventName, event);
+    console.log(eventsFilters);
+
+    // TODO move to a template
+    const widgetHtml = `<div class="card bg-success mx-3 col-sm-3" data-toggle="modal" data-target="#exampleModal">
+                          <div class="card-body text-white">
+                            <div class="form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">${eventName}</label>
+                            </div>
+                          </div>
+                        </div>`;
+    $('#boxEventsContainer').append(widgetHtml);
   } else {
     alert('The event is already on the events listening list');
   }
