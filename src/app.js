@@ -24,7 +24,7 @@ $('#btnConnect').click(() => {
     eventsFilters = new Map();
 
     contract.events.allEvents((error, event) => {
-
+      console.log(event);
     });
 
     $('#btnDisconnect').removeClass('disabled');
@@ -40,4 +40,16 @@ $('#btnDisconnect').click(() => {
   eventsFilters = null;
   $('#btnConnect').removeClass('disabled');
   $('#btnDisconnect').addClass('disabled');
+});
+
+$('#btnAddEvent').click(() => {
+  const eventName = $('#txtEventName').val();
+  if (!eventsFilters.has(eventName)) {
+    const event = {
+      name: eventName
+    };
+    eventsFilters.set(eventName, event);
+  } else {
+    alert('The event is already on the events listening list');
+  }
 });
