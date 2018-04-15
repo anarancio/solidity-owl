@@ -1,13 +1,6 @@
 import $ from 'jquery';
 import Web3 from 'web3';
 
-/*
-$(document).ready(function() {
-  console.log($('#connectionModal'));
-  $('#connectionModal').modal('show');
-});
-*/
-
 let web3 = null;
 let contract = null;
 let eventsFilters = null;
