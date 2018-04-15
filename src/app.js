@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Web3 from 'web3';
 
 /*
 $(document).ready(function() {
@@ -7,13 +8,36 @@ $(document).ready(function() {
 });
 */
 
-$('#btnConnect').click(function() {
-  let connectionUrl = $('#txtConnectionUrl').val();
-  let contractAddress = $('#txtContractAddress').val();
-  let contractAbi = $('#txtContractAbi').val();
-  if(connectionUrl && contractAddress && contractAbi) {
+let web3 = null;
+let contract = null;
+let eventsFilters = null;
 
+$('#btnConnect').click(() => {
+  $('#btnConnect').addClass('disabled');
+  const connectionUrl = $('#txtConnectionUrl').val();
+  const contractAddress = $('#txtContractAddress').val();
+  const contractAbi = JSON.parse($('#txtContractAbi').val());
+
+  if (connectionUrl && contractAddress && contractAbi) {
+    web3 = new Web3(new Web3.providers.WebsocketProvider(connectionUrl));
+    contract = new web3.eth.Contract(contractAbi, contractAddress);
+    eventsFilters = [];
+
+    contract.events.allEvents((error, event) => {
+
+    });
+
+    $('#btnDisconnect').removeClass('disabled');
   } else {
-    alert("You must provide all the connection data");
+    alert('You must provide all the connection data');
+    $('#btnConnect').removeClass('disabled');
   }
+});
+
+$('#btnDisconnect').click(() => {
+  web3 = null;
+  contract = null;
+  eventsFilters = null;
+  $('#btnConnect').removeClass('disabled');
+  $('#btnDisconnect').addClass('disabled');
 });
