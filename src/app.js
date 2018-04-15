@@ -21,7 +21,7 @@ $('#btnConnect').click(() => {
   if (connectionUrl && contractAddress && contractAbi) {
     web3 = new Web3(new Web3.providers.WebsocketProvider(connectionUrl));
     contract = new web3.eth.Contract(contractAbi, contractAddress);
-    eventsFilters = [];
+    eventsFilters = new Map();
 
     contract.events.allEvents((error, event) => {
 
