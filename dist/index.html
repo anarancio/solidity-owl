@@ -43,7 +43,7 @@
                           <input id="txtConnectionUrl" type="text" class="form-control" placeholder="<URL:PORT> ex.: http://localhost:8545" aria-label="<URL:PORT> ex.: http://localhost:8545" aria-describedby="basic-addon2" value="ws://localhost:8545">
                       </div>
                       <div class="form-group">
-                          <input id="txtContractAddress" type="text" class="form-control" placeholder="contract address" aria-label="contract address" aria-describedby="basic-addon2" value="0x97EBf0e76A1D18161d1D055143537A5bfAe19b09">
+                          <input id="txtContractAddress" type="text" class="form-control" placeholder="contract address" aria-label="contract address" aria-describedby="basic-addon2" value="0x5D7fDc3e80b59E08fee14Ae43A00fDa3B48B0A3D">
                       </div>
                       <div class="form-group">
                           <input id="txtContractAbi" type="text" class="form-control" placeholder="contract abi" aria-label="contract abi" aria-describedby="basic-addon2" value='[ { "constant": false, "inputs": [ { "name": "x", "type": "uint256" } ], "name": "set", "outputs": [], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [], "name": "get", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "_value", "type": "uint256" } ], "name": "LogEvent", "type": "event" }, { "anonymous": false, "inputs": [ { "indexed": false, "name": "_v1", "type": "uint256" }, { "indexed": false, "name": "_v2", "type": "uint256" } ], "name": "LogEvent1", "type": "event" } ]'>
@@ -89,142 +89,8 @@
     </header>
 
     <section class="container-fluid">
-        <div id="accordion" class="custom-accordion">
-            <div class="card mt-3">
-                <div class="card-header" id="heading-1">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link btn-block text-left d-flex" data-toggle="collapse" data-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
-                            EventName (args) <small class="ml-auto">expand</small>
-                        </button>
-                    </h5>
-                </div>
-
-                <div id="collapse-1" class="collapse" aria-labelledby="heading-1" data-parent="#accordion">
-                    <div class="card-body">
-                        <dl class="row">
-                            <dt class="col-sm-3 col-md-2">Contract Address:</dt>
-                            <dd class="col-sm-9 col-md-10">0x011a23...</dd>
-
-                            <dt class="col-sm-3 col-md-2">Event Name:</dt>
-                            <dd class="col-sm-9 col-md-10">EventName</dd>
-
-                            <dt class="col-sm-3 col-md-2">Args:</dt>
-                            <dd class="col-sm-9 col-md-10">(11, 44, 1.2)</dd>
-
-                            <dt class="col-sm-3 col-md-2">Block Hash:</dt>
-                            <dd class="col-sm-9 col-md-10">< block hash ></dd>
-
-                            <dt class="col-sm-3 col-md-2">Block Number:</dt>
-                            <dd class="col-sm-9 col-md-10">< block number ></dd>
-
-                            <dt class="col-sm-3 col-md-2">Transaction Hash:</dt>
-                            <dd class="col-sm-9 col-md-10">< tx hash ></dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mt-3">
-                <div class="card-header" id="heading-2">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link btn-block text-left d-flex" data-toggle="collapse" data-target="#collapse-2" aria-expanded="true" aria-controls="collapse-2">
-                            EventName (args) <small class="ml-auto">expand</small>
-                        </button>
-                    </h5>
-                </div>
-
-                <div id="collapse-2" class="collapse show" aria-labelledby="heading-2" data-parent="#accordion">
-                    <div class="card-body">
-                        <dl class="row">
-                            <dt class="col-sm-3 col-md-2">Contract Address:</dt>
-                            <dd class="col-sm-9 col-md-10">0x011a23...</dd>
-
-                            <dt class="col-sm-3 col-md-2">Event Name:</dt>
-                            <dd class="col-sm-9 col-md-10">EventName</dd>
-
-                            <dt class="col-sm-3 col-md-2">Args:</dt>
-                            <dd class="col-sm-9 col-md-10">(11, 44, 1.2)</dd>
-
-                            <dt class="col-sm-3 col-md-2">Block Hash:</dt>
-                            <dd class="col-sm-9 col-md-10">< block hash ></dd>
-
-                            <dt class="col-sm-3 col-md-2">Block Number:</dt>
-                            <dd class="col-sm-9 col-md-10">< block number ></dd>
-
-                            <dt class="col-sm-3 col-md-2">Transaction Hash:</dt>
-                            <dd class="col-sm-9 col-md-10">< tx hash ></dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mt-3">
-                <div class="card-header" id="heading-3">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link btn-block text-left d-flex" data-toggle="collapse" data-target="#collapse-3" aria-expanded="true" aria-controls="collapse-3">
-                            EventName (args) <small class="ml-auto">expand</small>
-                        </button>
-                    </h5>
-                </div>
-
-                <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#accordion">
-                    <div class="card-body">
-                        <dl class="row">
-                            <dt class="col-sm-3 col-md-2">Contract Address:</dt>
-                            <dd class="col-sm-9 col-md-10">0x011a23...</dd>
-
-                            <dt class="col-sm-3 col-md-2">Event Name:</dt>
-                            <dd class="col-sm-9 col-md-10">EventName</dd>
-
-                            <dt class="col-sm-3 col-md-2">Args:</dt>
-                            <dd class="col-sm-9 col-md-10">(11, 44, 1.2)</dd>
-
-                            <dt class="col-sm-3 col-md-2">Block Hash:</dt>
-                            <dd class="col-sm-9 col-md-10">< block hash ></dd>
-
-                            <dt class="col-sm-3 col-md-2">Block Number:</dt>
-                            <dd class="col-sm-9 col-md-10">< block number ></dd>
-
-                            <dt class="col-sm-3 col-md-2">Transaction Hash:</dt>
-                            <dd class="col-sm-9 col-md-10">< tx hash ></dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mt-3">
-                <div class="card-header" id="heading-4">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link btn-block text-left d-flex" data-toggle="collapse" data-target="#collapse-4" aria-expanded="true" aria-controls="collapse-4">
-                            EventName (args) <small class="ml-auto">expand</small>
-                        </button>
-                    </h5>
-                </div>
-
-                <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#accordion">
-                    <div class="card-body">
-                        <dl class="row">
-                            <dt class="col-sm-3 col-md-2">Contract Address:</dt>
-                            <dd class="col-sm-9 col-md-10">0x011a23...</dd>
-
-                            <dt class="col-sm-3 col-md-2">Event Name:</dt>
-                            <dd class="col-sm-9 col-md-10">EventName</dd>
-
-                            <dt class="col-sm-3 col-md-2">Args:</dt>
-                            <dd class="col-sm-9 col-md-10">(11, 44, 1.2)</dd>
-
-                            <dt class="col-sm-3 col-md-2">Block Hash:</dt>
-                            <dd class="col-sm-9 col-md-10">< block hash ></dd>
-
-                            <dt class="col-sm-3 col-md-2">Block Number:</dt>
-                            <dd class="col-sm-9 col-md-10">< block number ></dd>
-
-                            <dt class="col-sm-3 col-md-2">Transaction Hash:</dt>
-                            <dd class="col-sm-9 col-md-10">< tx hash ></dd>
-                        </dl>
-                    </div>
-                </div>
-            </div>
+        <div id="accordion" class="custom-accordion event-list">
+            
         </div>
     </section>
 

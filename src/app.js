@@ -5,6 +5,52 @@ let web3 = null;
 let contract = null;
 let eventsFilters = null;
 
+function shouldWatchEvent(event) {
+  const eventName = event.event;
+  return eventsFilters.has(eventName);
+}
+
+function getEventWidgetCode(event) {
+  const returnValues = JSON.stringify(event.returnValues);
+  return `<div class="card mt-3">
+            <div class="card-header" id="heading-1">
+                <h5 class="mb-0">
+                    <button class="btn btn-link btn-block text-left d-flex" data-toggle="collapse" data-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                        ${event.event}
+                    </button>
+                </h5>
+            </div>
+
+            <div id="collapse-1" class="collapse" aria-labelledby="heading-1" data-parent="#accordion">
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3 col-md-2">Contract Address:</dt>
+                        <dd class="col-sm-9 col-md-10">${event.address}</dd>
+
+                        <dt class="col-sm-3 col-md-2">Event Name:</dt>
+                        <dd class="col-sm-9 col-md-10">${event.event}</dd>
+
+                        <dt class="col-sm-3 col-md-2">Block Hash:</dt>
+                        <dd class="col-sm-9 col-md-10">${event.blockHash}</dd>
+
+                        <dt class="col-sm-3 col-md-2">Block Number:</dt>
+                        <dd class="col-sm-9 col-md-10">${event.blockNumber}</dd>
+
+                        <dt class="col-sm-3 col-md-2">Return Values:</dt>
+                        <dd class="col-sm-9 col-md-10">${returnValues}</dd>
+
+                        <dt class="col-sm-3 col-md-2">Transaction Hash:</dt>
+                        <dd class="col-sm-9 col-md-10">${event.transactionHash}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>`;
+}
+
+function addEventWidget(event) {
+  $('.event-list').prepend(getEventWidgetCode(event));
+}
+
 $('#btnConnect').click(() => {
   $('#btnConnect').addClass('disabled');
   const connectionUrl = $('#txtConnectionUrl').val();
@@ -18,6 +64,11 @@ $('#btnConnect').click(() => {
 
     contract.events.allEvents((error, event) => {
       console.log(event);
+
+      if (shouldWatchEvent(event)) {
+        console.log('es el evento');
+        addEventWidget(event);
+      }
     });
 
     $('#btnDisconnect').removeClass('disabled');
