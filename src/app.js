@@ -13,15 +13,15 @@ function shouldWatchEvent(event) {
 function getEventWidgetCode(event) {
   const returnValues = JSON.stringify(event.returnValues);
   return `<div class="card mt-3">
-            <div class="card-header" id="heading-1">
+            <div class="card-header" id="heading-${event.id}">
                 <h5 class="mb-0">
-                    <button class="btn btn-link btn-block text-left d-flex" data-toggle="collapse" data-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                    <button class="btn btn-link btn-block text-left d-flex" data-toggle="collapse" data-target="#collapse-${event.id}" aria-expanded="true" aria-controls="collapse-${event.id}">
                         ${event.event}
                     </button>
                 </h5>
             </div>
 
-            <div id="collapse-1" class="collapse" aria-labelledby="heading-1" data-parent="#accordion">
+            <div id="collapse-${event.id}" class="collapse" aria-labelledby="heading-${event.id}" data-parent="#accordion">
                 <div class="card-body">
                     <dl class="row">
                         <dt class="col-sm-3 col-md-2">Contract Address:</dt>
@@ -108,4 +108,8 @@ $('#btnAddEvent').click(() => {
   } else {
     alert('The event is already on the events listening list');
   }
+});
+
+$('#btnRemoveLogs').click(() => {
+  $('.event-list').empty();
 });

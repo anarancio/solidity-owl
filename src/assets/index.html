@@ -82,7 +82,7 @@
             <div class="row">
                 <div class="col-sm-12 text-right">
                     <button type="button" class="btn btn-link text-white"><i class="fas fa-reply"></i></button>
-                    <button type="button" class="btn btn-link text-white"><i class="fas fa-trash"></i></button>
+                    <button id="btnRemoveLogs" type="button" class="btn btn-link text-white"><i class="fas fa-trash"></i></button>
                 </div>
             </div>
         </div>
@@ -90,73 +90,11 @@
 
     <section class="container-fluid">
         <div id="accordion" class="custom-accordion event-list">
-            
+
         </div>
     </section>
 
-    <div class="modal fade" id="connectionModal" tabindex="-1" role="dialog" aria-labelledby="connectionModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title">Connection Settings</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Event name</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form class="px-4 py-3">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="event-1">
-                            <label class="form-check-label" for="event-1">
-                                Event 1
-                            </label>
-                            <button type="submit" class="btn btn-sm btn-link"><i class="fas fa-trash"></i></button>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="event-2">
-                            <label class="form-check-label" for="event-2">
-                                Event 2
-                            </label>
-                            <button type="submit" class="btn btn-sm btn-link"><i class="fas fa-trash"></i></button>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="event-3">
-                            <label class="form-check-label" for="event-2">
-                                Event 3
-                            </label>
-                            <button type="submit" class="btn btn-sm btn-link"><i class="fas fa-trash"></i></button>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="event-4">
-                            <label class="form-check-label" for="event-2">
-                                Event 3
-                            </label>
-                            <button type="submit" class="btn btn-sm btn-link"><i class="fas fa-trash"></i></button>
-                        </div>
-
-                    </form>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="submit" class="btn btn-sm btn-danger">Clear All</button>
-                    <button type="submit" class="btn btn-sm btn-danger">Unwatch All</button>
-                    <button type="submit" class="btn btn-sm btn-success">Watch All</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
