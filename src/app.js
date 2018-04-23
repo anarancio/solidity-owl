@@ -109,15 +109,15 @@ $('#btnAddEvent').click(() => {
     const event = {
       id: eventId,
       name: eventName,
+      watching: true,
     };
     eventsFilters.set(eventName, event);
     console.log(eventsFilters);
 
     // TODO move to a template
-    const widgetHtml = `<div class="card bg-success mx-3 col-sm-3" data-toggle="modal">
+    const widgetHtml = `<div class="card bg-success mx-3 col-sm-3" id="boxEventWidget_${eventId}">
                           <div class="card-body text-white">
                             <div class="form-check">
-                              <input type="checkbox" class="form-check-input" id="ckEvent_${eventId}" checked>
                               <label class="form-check-label" for="ckEvent_${eventId}">${eventName}</label>
                             </div>
                           </div>
@@ -130,4 +130,13 @@ $('#btnAddEvent').click(() => {
 
 $('#btnRemoveLogs').click(() => {
   $('.event-list').empty();
+});
+
+$('#btnWatchAll').click(() => {
+  eventsFilters.forEach((value, key, map) => {
+    const event = eventsFilters.get(key);
+    event.watching = false;
+    $('#boxEventWidget_' + event.id).removeClass('bg-danger');
+    $('#boxEventWidget_' + event.id).addClass('bg-success');
+  });
 });

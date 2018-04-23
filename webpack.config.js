@@ -12,7 +12,9 @@ module.exports = {
     ],
     output: {
         filename: 'bundle.js',
-        path: conf.dist
+        path: conf.dist,
+        libraryTarget: 'var',
+        library: 'SolidityOwl'
     },
     module: {
       rules: [
