@@ -7,7 +7,11 @@ let eventsFilters = null;
 
 function shouldWatchEvent(event) {
   const eventName = event.event;
-  return eventsFilters.has(eventName);
+  if(eventsFilters.has(eventName)) {
+    const event = eventsFilters.get(eventName);
+    return event.watching;
+  }
+  return false;
 }
 
 function getEventWidgetCode(event) {
@@ -135,7 +139,7 @@ $('#btnRemoveLogs').click(() => {
 $('#btnWatchAll').click(() => {
   eventsFilters.forEach((value, key, map) => {
     const event = eventsFilters.get(key);
-    event.watching = false;
+    event.watching = true;
     $('#boxEventWidget_' + event.id).removeClass('bg-danger');
     $('#boxEventWidget_' + event.id).addClass('bg-success');
   });
