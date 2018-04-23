@@ -140,3 +140,12 @@ $('#btnWatchAll').click(() => {
     $('#boxEventWidget_' + event.id).addClass('bg-success');
   });
 });
+
+$('#btnUnWatchAll').click(() => {
+  eventsFilters.forEach((value, key, map) => {
+    const event = eventsFilters.get(key);
+    event.watching = false;
+    $('#boxEventWidget_' + event.id).removeClass('bg-success');
+    $('#boxEventWidget_' + event.id).addClass('bg-danger');
+  });
+});
