@@ -1,0 +1,34 @@
+// Fonts
+$font-primary: 'Dosis', sans-serif;
+$font-secondary: 'Montserrat', sans-serif;
+
+$font-family-base: $font-primary;
+
+// ICONS
+$fa-font-path:   "../fonts/webfonts";
+
+// Colors
+// $blue:                     $color4;
+$secondary:                $color1;
+
+// Options
+$enable-shadows:            true;
+
+// Forms
+$input-border-color:        $color3;
+$input-box-shadow:          none;
+
+// Buttons
+$btn-border-radius:         0;
+
+// Tabs Pills
+$nav-pills-border-radius:           0;
+$nav-pills-link-active-color:       $color5;
+$nav-pills-link-active-bg:          $white;
+
+// Tables
+$table-dark-bg:               $color4;
+$table-border-width:          0;
+
+// Modal
+$modal-footer-border-width:    0;

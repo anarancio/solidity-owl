@@ -1,0 +1,14 @@
+$white:             #ffffff;
+$black:             #000000;
+
+$color1:            #43C6AC; // Green
+$color2:            #F8FFAE; // Corn Yellow
+$color3:            #ededed; // Light Gray
+$color4:            #82a9f0; // Blue Light
+$color5:            #343a40; // Dark Gray
+
+%main-gradient {
+    background: $color1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $color1, $color2);
+    background: linear-gradient(to right, $color1, $color2);
+}

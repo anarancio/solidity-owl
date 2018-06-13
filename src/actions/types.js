@@ -1,0 +1,6 @@
+//AUTH
+export const AUTHORIZATION = 'AUTHORIZATION';
+export const CLEAR_USER_DATA = 'CLEAR_USER_DATA';
+
+//TABS
+export const SELECT_TAB = 'SELECT_TAB';

@@ -1,0 +1,124 @@
+html, body {
+    height:100%;
+}
+
+body {
+    @extend %main-gradient;
+}
+
+.mnh-100 {
+    @media screen and (min-width: 1024px) {
+        min-height: 100% !important
+    }
+}
+
+.z-1 {
+    z-index: 1;
+}
+
+.badge-tokens {
+    color: $color1;
+    font-size: 1rem;
+    border: 1px solid $color1;
+    vertical-align: middle;
+}
+
+.table {
+    font-family: $font-secondary;
+}
+
+.mw-350 {
+    max-width: 350px;
+}
+
+// TABS PILLS
+.nav-pills {
+    .nav-link {
+        border-style: solid;
+        border-color: transparentize($black, .7);
+        border-width: 1px 0 1px 1px;
+        color: transparentize($black, .7);
+        padding-left: 0;
+        position: relative;
+
+        &:before {
+            width: 40px;
+            height: 100%;
+            content: " ";
+            position: absolute;
+            top: 0;
+            z-index: 0;
+            border-radius: 4px 0 0 4px;
+            border-right: 1px solid transparentize($black, .7);
+        }
+
+        &.active {
+            border-color: $white;
+
+            &:before {
+                background: $color4;
+                border-right: 1px solid transparentize($black, 1);
+            }
+
+            i {
+                color: $white;
+            }
+        }
+
+        &.disabled:hover {
+            border-color: transparentize($black, .7);
+            color: transparentize($black, .7);
+            background: transparent;
+            cursor: not-allowed;
+
+            &:before {
+                background: transparent;
+                border-right: 1px solid transparentize($black, .7);
+            }
+
+            i {
+                color: transparentize($black, .7);
+            }
+        }
+
+        &:hover {
+            background: $white;
+            border-color: $white;
+            color: $color5;
+
+            &:before {
+                background: $color4;
+                border-right: 1px solid transparentize($black, 1);
+            }
+
+            i {
+                color: $white;
+            }
+        }
+
+        i {
+            width: 40px;
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+// TABS on MODAL
+.modal-body {
+    .nav-link {
+        background: #dee2e6;
+        color: darken(#dee2e6, 15%);
+    }
+}
+
+// NAVIGATION
+.navbar {
+    .nav-link {
+        @media screen and (max-width: 992px) {
+            border-width: 1px;
+            border-top-right-radius: .25rem !important;
+            border-bottom-right-radius: .25rem !important
+        }
+    }
+}
