@@ -2,7 +2,7 @@ import createReducer from './helpers/reducerHelper'
 import {SET_ETH_URL, SET_CONTRACT_ADDR, SET_CONTRACT_ABI} from "../actions/types";
 
 const initialState = {
-    ethUrl: '',
+    ethUrl: 'ws://localhost:8545',
     contractAddr: '',
     contractAbi: ''
 };
