@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux';
-import userReducer from "./userReducer.js";
-import tabReducer from "./tabReducer.js";
+import configReducer from "./configReducer.js";
 
 const rootReducer = combineReducers({
     state: (state = {}) => state,
-    userReducer: userReducer,
-    tabReducer: tabReducer
+    configReducer: configReducer
 });
 
 export default rootReducer;

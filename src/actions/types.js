@@ -1,6 +1,4 @@
-//AUTH
-export const AUTHORIZATION = 'AUTHORIZATION';
-export const CLEAR_USER_DATA = 'CLEAR_USER_DATA';
-
-//TABS
-export const SELECT_TAB = 'SELECT_TAB';
+//CONFIG
+export const SET_ETH_URL = 'SET_ETH_URL';
+export const SET_CONTRACT_ADDR = 'SET_CONTRACT_ADDR';
+export const SET_CONTRACT_ABI = 'SET_CONTRACT_ABI';
