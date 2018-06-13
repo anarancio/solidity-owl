@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 import SetupComponent from "../setup/SetupComponent";
 import EventSetupComponent from "../setup/EventSetupComponent";
+import LogsActions from "../logs/LogsActions";
 
 export default class HeaderComponent extends Component{
 
@@ -12,12 +13,7 @@ export default class HeaderComponent extends Component{
                 <EventSetupComponent />                
             </div>
             <div class="bg-secondary container-fluid">
-                <div class="row">
-                    <div class="col-sm-12 text-right">
-                        <button type="button" class="btn btn-link text-white"><i class="fas fa-reply"></i></button>
-                        <button id="btnRemoveLogs" type="button" class="btn btn-link text-white"><i class="fas fa-trash"></i></button>
-                    </div>
-                </div>
+                <LogsActions />
             </div>
         </header>
 
