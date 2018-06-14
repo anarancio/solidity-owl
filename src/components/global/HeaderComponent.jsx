@@ -7,12 +7,12 @@ import LogsActions from "../logs/LogsActions";
 export default class HeaderComponent extends Component{
 
     render =()=>
-        <header class="bg-dark">
-            <div class="container-fluid pb-3">                
+        <header className="bg-dark">
+            <div className="container-fluid pb-3">                
                 <SetupComponent />                
                 <EventSetupComponent />                
             </div>
-            <div class="bg-secondary container-fluid">
+            <div className="bg-secondary container-fluid">
                 <LogsActions />
             </div>
         </header>
