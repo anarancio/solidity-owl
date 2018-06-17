@@ -1,36 +1,35 @@
 import createReducer from './helpers/reducerHelper'
-import {SET_ETH_URL, SET_CONTRACT_ADDR, SET_CONTRACT_ABI} from "../actions/types";
+import {SET_CONFIG_DATA_ACTION, DISCONNECT_ACTION} from "../actions/types";
 
 const initialState = {
     ethUrl: 'ws://localhost:8545',
     contractAddr: '',
-    contractAbi: ''
+    contractAbi: '',
+    connected: false
 };
 
 const configReducer = createReducer(initialState,
     {
 
-        [SET_ETH_URL](state, action) {
+        [SET_CONFIG_DATA_ACTION](state, action) {
             return {
                 ...state,
                 ethUrl: action.data.ethUrl,
-            };
-        },
-
-        [SET_CONTRACT_ADDR](state, action) {
-            return {
-                ...state,
                 contractAddr: action.data.contractAddr,
+                contractAbi: action.data.contractAbi,
+                connected: true
             };
         },
 
-        [SET_CONTRACT_ABI](state, action) {
+        [DISCONNECT_ACTION](state, action) {
             return {
                 ...state,
-                contractAbi: action.data.contractAbi,
+                ethUrl: '',
+                contractAddr: '',
+                contractAbi: '',
+                connected: false
             };
         }
-
 
     });
 

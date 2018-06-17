@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 
 import TextInput from "../../genericComponents/TextInput"
+import {connectToEth} from "../../actions/connectActions"
 
 
 class SetupComponent extends Component {
@@ -9,6 +11,7 @@ class SetupComponent extends Component {
     constructor(props) {
         super(props);
         this.handleEthUrlChange = this.handleEthUrlChange.bind(this);
+        this.connectToEth = this.connectToEth.bind(this);
         this.state = {
             ethUrl: this.props.ethUrl,
             ethUrlValid: (this.props.ethUrl !== ''),
@@ -40,6 +43,22 @@ class SetupComponent extends Component {
         });
     }
 
+    connectToEth = (e) => {
+        e.preventDefault();
+        if(this.state.ethUrl !== '' && this.state.contractAddr !== '' && this.state.contractAbi !== '') {
+            const connectData = {
+                ethUrl: this.state.ethUrl,
+                contractAddr: this.state.contractAddr,
+                contractAbi: this.state.contractAbi,
+            };
+            
+            this.props.connectToEth(connectData);
+        } else {
+            //TODO use custom address
+            alert("You must fill all the fields");
+        }
+    }
+
     render =()=>
         <div className="row">
             <div className="col-sm-12 pt-2 pb-2 bg-secondary mb-4">
@@ -69,8 +88,7 @@ class SetupComponent extends Component {
                                 inputWrapperClass={"form-control"} />
                     </div>
                     <div className="text-right">
-                        <button id="btnConnect" type="button" className="btn btn-primary">Connect</button>
-                        <button id="btnDisconnect" type="button" className="btn btn-danger disabled">Disconnect</button>
+                        <button id="btnConnect" type="button" className="btn btn-primary" onClick={this.connectToEth}>Connect</button>
                     </div>
                 </div>
             </div>
@@ -86,4 +104,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(SetupComponent);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({connectToEth: connectToEth}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SetupComponent);
