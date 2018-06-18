@@ -10,7 +10,7 @@ const createConfigSetup = createLogic({
         const abiJson = JSON.parse(action.data.contractAbi);
         let events = [];
         abiJson.forEach(function(element) {
-            if(element.type == "event") {
+            if(element.type === "event") {
                 events.push(element.name);
             }
         });
