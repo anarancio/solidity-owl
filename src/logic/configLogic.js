@@ -11,7 +11,12 @@ const createConfigSetup = createLogic({
         let events = [];
         abiJson.forEach(function(element) {
             if(element.type === "event") {
-                events.push(element.name);
+                const event = {
+                    index: events.length,
+                    name: element.name,
+                    listening: false
+                }
+                events.push(event);
             }
         });
         console.log(events);
