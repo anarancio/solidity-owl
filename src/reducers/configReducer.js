@@ -1,11 +1,12 @@
 import createReducer from './helpers/reducerHelper'
-import {CONNECT_TO_ETH_ACTION, DISCONNECT_ACTION} from "../actions/types";
+import {CONNECT_TO_ETH_ACTION, ETH_DISCONNECTED} from "../actions/types";
 
 const initialState = {
-    ethUrl: 'ws://localhost:8545',
-    contractAddr: '',
-    contractAbi: '',
+    ethUrl: 'ws://localhost:9545',
+    contractAddr: '0xf25186b5081ff5ce73482ad761db0eb0d25abfbf',
+    contractAbi: '[ { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [ { "indexed": true, "name": "_from", "type": "address" }, { "indexed": true, "name": "_to", "type": "address" }, { "indexed": false, "name": "_value", "type": "uint256" } ], "name": "Transfer", "type": "event" }, { "constant": false, "inputs": [ { "name": "receiver", "type": "address" }, { "name": "amount", "type": "uint256" } ], "name": "sendCoin", "outputs": [ { "name": "sufficient", "type": "bool" } ], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [ { "name": "addr", "type": "address" } ], "name": "getBalanceInEth", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "addr", "type": "address" } ], "name": "getBalance", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" } ]',
     web3: null,
+    contract: null,
     eventList: [],
     connected: false
 };
@@ -20,20 +21,15 @@ const configReducer = createReducer(initialState,
                 contractAddr: action.data.contractAddr,
                 contractAbi: action.data.contractAbi,
                 web3: action.data.web3,
-                eventList: action.data.events,
+                contract: action.data.contract,
+                eventList: action.data.events,                
                 connected: true
             };
         },
 
-        [DISCONNECT_ACTION](state, action) {
+        [ETH_DISCONNECTED](state, action) {
             return {
-                ...state,
-                ethUrl: '',
-                contractAddr: '',
-                contractAbi: '',
-                web3: null,
-                eventList: [],
-                connected: false
+                ...initialState
             };
         }
 
