@@ -36,7 +36,6 @@ const configReducer = createReducer(initialState,
         },
 
         [EVENT_LISTENER_STATUS_CHANGED_ACTION](state, action) {
-            console.log(state);
             const event = state.eventList[action.data.idx];
             const newEvent = update(event, {
                 listening: {$set: action.data.listening},

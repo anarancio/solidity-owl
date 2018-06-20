@@ -1,8 +1,7 @@
 import { createLogic } from 'redux-logic';
-import Web3 from 'web3'
 
 import {TOGGLE_EVENT} from "../actions/types";
-import {eventListenerStatusChanged} from "../actions/listenActions"
+import {eventListenerStatusChanged, newEvent} from "../actions/listenActions"
 
 const toggleEvent = createLogic({
     type: TOGGLE_EVENT,
@@ -12,8 +11,12 @@ const toggleEvent = createLogic({
             // we have to listen for the event            
            subscription = getState().configReducer.contract.events[action.data.name]({}, function(error, event) {
                 console.log("evento1:");
-                console.log(event);
+                //console.log(event);
                 console.log(dispatch);
+                const data = {
+                    event: event
+                }
+                dispatch(newEvent(data));
             });
         } else {
             getState().configReducer.eventList[action.data.idx].subscription.unsubscribe();
@@ -26,7 +29,7 @@ const toggleEvent = createLogic({
             subscription: subscription
         }
         dispatch(eventListenerStatusChanged(data));
-        done();
+        //done();
     }
 });
 
