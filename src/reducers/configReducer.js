@@ -1,5 +1,7 @@
+import update from 'immutability-helper';
+
 import createReducer from './helpers/reducerHelper'
-import {CONNECT_TO_ETH_ACTION, ETH_DISCONNECTED} from "../actions/types";
+import {CONNECT_TO_ETH_ACTION, ETH_DISCONNECTED, EVENT_LISTENER_STATUS_CHANGED_ACTION} from "../actions/types";
 
 const initialState = {
     ethUrl: 'ws://localhost:9545',
@@ -31,6 +33,19 @@ const configReducer = createReducer(initialState,
             return {
                 ...initialState
             };
+        },
+
+        [EVENT_LISTENER_STATUS_CHANGED_ACTION](state, action) {
+            console.log(state);
+            const event = state.eventList[action.data.idx];
+            const newEvent = update(event, {
+                listening: {$set: action.data.listening},
+                subscription: {$set: action.data.subscription}
+            });
+            
+            return update(state, {
+                eventList: {$splice: [[action.data.idx, 1, newEvent]]}
+            })
         }
 
     });

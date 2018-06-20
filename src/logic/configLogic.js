@@ -10,6 +10,7 @@ const disconnectFromEth = createLogic({
         console.dir(getState().configReducer.contract.events.Transfer());
         //getState().configReducer.contract.events.stopWatching();
         dispatch(disconnectedFromEth());
+        done();
     }
 });
 
@@ -27,12 +28,13 @@ const createConfigSetup = createLogic({
                 const event = {
                     index: events.length,
                     name: element.name,
+                    subscription: null,
                     listening: false
                 }
                 events.push(event);
             }
         });
-        console.log(events);
+        
         const data = {
             ethUrl: action.data.ethUrl,
             contractAddr: action.data.contractAddr,
@@ -41,13 +43,14 @@ const createConfigSetup = createLogic({
             contract: contract,
             events: events,            
         };
-        console.log(data);
         dispatch(connectedToEth(data));
-
+        done();
+        /*
         contract.events.allEvents((error, event) => {
             console.log(event);
             console.log(dispatch);
         });
+        */
     }
 });
 
