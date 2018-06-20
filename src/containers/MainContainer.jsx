@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import HeaderComponent from "../components/global/HeaderComponent"
+import HeaderComponent from "../components/global/HeaderComponent";
+import LogsComponent from "../components/logs/LogsComponent";
 
 class MainContainer extends Component{
    
@@ -9,6 +10,7 @@ class MainContainer extends Component{
     render = () =>
         <div>
             <HeaderComponent />
+            <LogsComponent />
         </div>
 }
 
