@@ -23,7 +23,7 @@ class SetupInfoComponent extends Component {
     render =()=>
         <div className="row">
             <div className="col-sm-12 pt-2 pb-2 bg-secondary mb-4">
-                <div className="d-block" id="navbarSupportedContent">
+                <div className="d-block setup-info" id="navbarSupportedContent">
                     <div className="form-group">
                         URL: {this.state.ethUrl}
                     </div>

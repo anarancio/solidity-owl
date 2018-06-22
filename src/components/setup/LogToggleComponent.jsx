@@ -21,9 +21,9 @@ class LogToggleComponent extends Component{
     }
 
     render =()=> {
-        let status = 'card bg-success mx-3 col-sm-3';
+        let status = 'card bg-success mx-2 col-sm-2';
         if(!this.props.listening) {
-            status = 'card bg-danger mx-3 col-sm-3';
+            status = 'card bg-danger mx-2 col-sm-2';
         }
         return <div className={status} id="boxEventWidget_{this.props.name}" onClick={this.handleToggleEvent}>
                     <div className="card-body text-white">

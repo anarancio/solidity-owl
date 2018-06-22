@@ -5,12 +5,19 @@ import LogToggleComponent from "./LogToggleComponent"
 
 class EventSetupComponent extends Component{
 
+    constructor(props) {
+        super(props);
+        this.renderCmp = this.renderCmp.bind(this);
+    }
+
+    renderCmp = () => {
+        //TODO we should implement de watch and unwatch all
+        return <div />
+    }
+
     render =()=> <div className="row">
-                    <div className="col-sm-3 col-md-2">
-                        <button id="btnWatchAll" type="button" className="btn btn-success btn-block mb-3">Watch All</button>
-                        <button id="btnUnWatchAll" type="button" className="btn btn-danger btn-block">Unwatch All</button>
-                    </div>
-                    <div className="col-sm-9 col-md-10">
+                    {this.renderCmp()}
+                    <div className="col-sm-11 col-md-12">
                         <div className="scroller">
                             <div id="boxEventsContainer" className="row flex-nowrap">
                                 {this.props.eventList.map((event) => <LogToggleComponent 
@@ -27,7 +34,8 @@ class EventSetupComponent extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        eventList: state.configReducer.eventList
+        eventList: state.configReducer.eventList,
+        connected: state.configReducer.connected
     }
 }
 

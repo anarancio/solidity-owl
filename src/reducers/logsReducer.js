@@ -1,7 +1,7 @@
 import update from 'immutability-helper';
 
 import createReducer from './helpers/reducerHelper'
-import {NEW_EVENT_ACTION} from "../actions/types";
+import {NEW_EVENT_ACTION, ETH_DISCONNECTED} from "../actions/types";
 
 const initialState = {
     logs: []
@@ -18,6 +18,12 @@ const logsReducer = createReducer(initialState,
             return update(state, {
                 logs: {$push: [event]}
             });
+        },
+
+        [ETH_DISCONNECTED](state, action) {
+            return {
+                ...initialState
+            };
         }
 
     });
