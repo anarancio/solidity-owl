@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 
 import HeaderComponent from "../components/global/HeaderComponent";
-import LogsComponent from "../components/logs/LogsComponent";
+import LogsComponent from "../components/log/LogsComponent";
 
 class MainContainer extends Component{
    

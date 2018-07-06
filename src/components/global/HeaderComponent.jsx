@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import SetupComponent from "../setup/SetupComponent";
 import SetupInfoComponent from "../setup/SetupInfoComponent";
 import EventSetupComponent from "../setup/EventSetupComponent";
-import LogsActions from "../logs/LogsActions";
+import LogsActions from "../log/LogsActions";
 
 class HeaderComponent extends Component{
 
