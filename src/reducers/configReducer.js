@@ -4,9 +4,9 @@ import createReducer from './helpers/reducerHelper'
 import {CONNECT_TO_ETH_ACTION, ETH_DISCONNECTED, EVENT_LISTENER_STATUS_CHANGED_ACTION} from "../actions/types";
 
 const initialState = {
-    ethUrl: 'ws://localhost:9545',
-    contractAddr: '0xf25186b5081ff5ce73482ad761db0eb0d25abfbf',
-    contractAbi: '[ { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [ { "indexed": true, "name": "_from", "type": "address" }, { "indexed": true, "name": "_to", "type": "address" }, { "indexed": false, "name": "_value", "type": "uint256" } ], "name": "Transfer", "type": "event" }, { "constant": false, "inputs": [ { "name": "receiver", "type": "address" }, { "name": "amount", "type": "uint256" } ], "name": "sendCoin", "outputs": [ { "name": "sufficient", "type": "bool" } ], "payable": false, "stateMutability": "nonpayable", "type": "function" }, { "constant": true, "inputs": [ { "name": "addr", "type": "address" } ], "name": "getBalanceInEth", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [ { "name": "addr", "type": "address" } ], "name": "getBalance", "outputs": [ { "name": "", "type": "uint256" } ], "payable": false, "stateMutability": "view", "type": "function" } ]',
+    ethUrl: '',
+    contractAddr: '',
+    contractAbi: '',
     web3: null,
     contract: null,
     eventList: [],
