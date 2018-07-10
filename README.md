@@ -37,14 +37,13 @@ You can easily watch all the events emitted by a smart contract.
 
 ### Future steps
 
-1) Complete the following sections (changing the UI)
+1) Complete the following sections
 
 * Events
 * Transactions: get the transaction info by hash, show event when a transaction is confirmed or cancelled.
 * Blocks: get information about a specific block (events, transactions) or block range.
-* Contract: general information about the contract, latest block, storage variables, for mappings we can get the value for a key.
-* Addresses: info about address, like the transaction count.
+* Contract: general information about the contract, latest block, storage variables.
+* Addresses
 
 2) Add the possibility to watch multiple contracts
 
-3) UI for standar smart contracts invocations: inspect the abi and generate the web3js code for the invocations of the functions
