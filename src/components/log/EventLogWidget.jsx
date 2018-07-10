@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 
-export default class LogWidgetComponent extends Component {
+export default class EventLogWidget extends Component {
 
     render =()=> {
             const id = "collapse-" + this.props.id;

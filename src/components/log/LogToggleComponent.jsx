@@ -1,17 +1,13 @@
 import React, {Component} from "react";
-import {connect} from "react-redux";
-import {bindActionCreators} from "redux";
 
-import {toggleEvent} from "../../actions/listenActions"
-
-class LogToggleComponent extends Component{
+export default class LogToggleComponent extends Component{
 
     constructor(props) {
         super(props);
         this.handleToggleEvent = this.handleToggleEvent.bind(this);
     }
 
-    handleToggleEvent = (event) => {
+    handleToggleEvent = () => {
         const data = {
             name: this.props.name,
             idx: this.props.idx,
@@ -35,14 +31,3 @@ class LogToggleComponent extends Component{
     }
 
 }
-
-const mapStateToProps = (state) => {
-    return {
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({toggleEvent: toggleEvent}, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(LogToggleComponent);

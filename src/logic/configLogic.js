@@ -8,7 +8,13 @@ const disconnectFromEth = createLogic({
     type: DISCONNECT_ACTION,
     process({getState, action}, dispatch, done) {
         console.dir(getState().configReducer.contract.events.Transfer());
-        //getState().configReducer.contract.events.stopWatching();
+        // Check for all subscriptions and cancel them before disconnect
+        getState().configReducer.eventList.forEach(event =>{
+            if(event.subscription){
+                console.log("Unsubscribing from event: "+JSON.stringify(event.name));
+                event.subscription.unsubscribe();
+            }
+        });
         dispatch(disconnectedFromEth());
         done();
     }

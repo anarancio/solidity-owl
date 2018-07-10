@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import SetupComponent from "../setup/SetupComponent";
-import SetupInfoComponent from "../setup/SetupInfoComponent";
-import EventSetupComponent from "../setup/EventSetupComponent";
-import LogsActions from "../log/LogsActions";
+import SetupComponent from "./SetupContainer";
+import SetupInfoComponent from "./SetupInfoContainer";
+import EventSetupComponent from "./EventSetupContainer";
+import LogsActions from "../components/log/LogsActions";
 
-class HeaderComponent extends Component{
+class HeaderContainer extends Component{
 
     constructor(props) {
         super(props);
@@ -23,7 +23,7 @@ class HeaderComponent extends Component{
 
     render =()=>
         <header className="bg-dark">
-            <div className="container-fluid pb-3">                
+            <div className="container-fluid pb-3">
                 {this.setupCmp()}
                 <EventSetupComponent />                
             </div>
@@ -40,4 +40,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(HeaderComponent);
+export default connect(mapStateToProps)(HeaderContainer);

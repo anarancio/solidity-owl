@@ -1,7 +1,9 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import LogToggleComponent from "./LogToggleComponent"
+import {bindActionCreators} from "redux";
+import {toggleEvent} from "../actions/listenActions";
+import LogToggleComponent from "../components/log/LogToggleComponent";
 
 class EventSetupComponent extends Component{
 
@@ -20,11 +22,12 @@ class EventSetupComponent extends Component{
                     <div className="col-sm-11 col-md-12">
                         <div className="scroller">
                             <div id="boxEventsContainer" className="row flex-nowrap">
-                                {this.props.eventList.map((event) => <LogToggleComponent 
+                                {this.props.eventList.map((event) => <LogToggleComponent
                                                                             name={event.name} 
                                                                             idx={event.index} 
                                                                             listening={event.listening} 
-                                                                            key={event.index} />)}
+                                                                            key={event.index}
+                                                                            toggleEvent={this.props.toggleEvent}/>)}
                             </div>
                         </div>
                     </div>
@@ -39,4 +42,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(EventSetupComponent);
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({toggleEvent: toggleEvent}, dispatch)
+}
+
+
+export default connect(mapStateToProps,  mapDispatchToProps)(EventSetupComponent);

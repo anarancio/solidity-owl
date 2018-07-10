@@ -10,8 +10,6 @@ const toggleEvent = createLogic({
         if(!action.data.listening) {
             // we have to listen for the event            
            subscription = getState().configReducer.contract.events[action.data.name]({}, function(error, event) {
-                console.log("evento1:");
-                //console.log(event);
                 console.log(dispatch);
                 const data = {
                     event: event
