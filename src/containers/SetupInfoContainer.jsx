@@ -2,9 +2,9 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import {disconnectFromEth} from "../../actions/connectActions"
+import {disconnectFromEth} from "../actions/connectActions"
 
-class SetupInfoComponent extends Component {
+class SetupInfoContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -51,4 +51,4 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({disconnectFromEth: disconnectFromEth}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SetupInfoComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(SetupInfoContainer);

@@ -2,11 +2,11 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 
-import TextInput from "../../genericComponents/TextInput"
-import {connectToEth} from "../../actions/connectActions"
+import TextInput from "../genericComponents/TextInput"
+import {connectToEth} from "../actions/connectActions"
 
 
-class SetupComponent extends Component {
+class SetupContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -108,4 +108,4 @@ const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({connectToEth: connectToEth}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SetupComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(SetupContainer);

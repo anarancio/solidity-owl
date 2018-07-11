@@ -1,14 +1,14 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import LogWidgetComponent from "./LogWidgetComponent";
+import EventLogWidget from "../components/log/EventLogWidget";
 
-class LogsComponent extends Component {
+class EventLogContainer extends Component {
 
     render =()=>
         <div id="accordion" className="custom-accordion">
             {this.props.events.reverse().map((event) => {
-                                                return <LogWidgetComponent 
+                                                return <EventLogWidget
                                                                 key={event.id}
                                                                 id={event.id}
                                                                 name={event.event}
@@ -25,6 +25,7 @@ class LogsComponent extends Component {
                                                 })}
         </div>
 
+
 }
 
 const mapStateToProps = (state) => {
@@ -33,4 +34,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(LogsComponent);
+export default connect(mapStateToProps)(EventLogContainer);
