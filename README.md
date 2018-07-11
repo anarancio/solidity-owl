@@ -1,4 +1,8 @@
-![](./owl.png) 
+<p align="center">
+  <img src="./owl.png" />
+</p>
+
+
 # Solidity Owl #
 
 
